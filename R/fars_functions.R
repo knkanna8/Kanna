@@ -16,7 +16,9 @@
 #' @import dplyr readr
 #'
 #' @examples
+#' \dontrun{
 #' fars_read("/home/kanna/Desktop/COURSERA/data/accident_2013.csv.bz2")
+#' }
 #'
 #' @export
 fars_read <- function(filename) {
@@ -153,7 +155,9 @@ fars_summarize_years <- function(years) {
 #' it returns "no accidents to plot".
 #'
 #' @examples
+#' \dontrun{
 #' fars_map_state(1,2013)
+#' }
 #'
 #' @export
 fars_map_state <- function(state.num, year) {
@@ -170,7 +174,6 @@ fars_map_state <- function(state.num, year) {
   }
   is.na(data.sub$LONGITUD) <- data.sub$LONGITUD > 900
   is.na(data.sub$LATITUDE) <- data.sub$LATITUDE > 90
-    library(maps)
   with(data.sub, {
     maps::map("state", ylim = range(LATITUDE, na.rm = TRUE),
               xlim = range(LONGITUD, na.rm = TRUE))
