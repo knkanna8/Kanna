@@ -1,0 +1,95 @@
+---
+title: "Fars functions"
+author: "Kunasekaran Nirmalkanna"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This package contains some function to extaract information from Fars data. Those functions are:
+
+
+## 1. Read fars data using *fars_read()*.
+
+This function reads a .csv file and convert in to \code{tbl} data frame object. The main advantage to using a tbl_df over a regular data frame is the printing: tbl objects only print a few rows and all the columns that fit on one screen, describing the rest of it as text.
+
+* If there is no such file then it will return "file <filename> does not exist".
+
+```{r}
+library(Kanna)
+fars_read("accident_2013.csv.bz2")
+```
+
+
+## 2. Generate fars data file name using *make_filename()*.
+
+It generates character strings (eg: "accident_2013.csv.bz2") for
+a given year (eg: 2013).
+
+* If the argument is not a number then it will return "accident_NA.csv.bz2"
+and a warning.
+
+```{r}
+make_filename(2013)
+```
+
+
+
+## 3. Extract month and year columns in the fars data using *fars_read_years()*.
+
+This function returns a list of data frames. Each data frame contain only
+the month and the year columns from fars data for each year. It returns a list of data frame for each year. The data frame contains only the month and the year columns of fars data.
+
+* If the argument is not a number then it will return a NULL list with
+a warning says that the argument is invalid.
+
+
+```{r}
+fars_read_years(2013)
+fars_read_years(c(2013,2014))
+```
+
+
+
+## 4. Frequency table for months in fars data using *fars_summarize_years()*.
+
+This function gives a frequency table for months in each year.
+
+* It returns a frequency table for months in each year. The first column
+of the output is the month number and the other columns are year-wise month
+counts in the fars data.
+
+* If the year is not in the fars data then it will return an error message.
+
+```{r}
+fars_summarize_years(2013)
+fars_summarize_years(c(2013,2014))
+```
+
+
+## 5. Plot the accidents in states in the fars data using *fars_map_state()*.
+
+This function plots the state and the point where the accidents
+occured in a specific year.
+
+* It returns a plot of state with points where the accidents
+occured in a specific year.
+
+* It plots the accidents which occured in latitude <= 90 and
+longitude <= 900. If the argument \code{state.num} is beyond the number of
+states in the fars data then it will return that "invalid STATE number".
+If there is no accident during a specific year in  aspecific state then
+it returns "no accidents to plot".
+
+```{r echo=FALSE}
+library(maps)
+```
+
+```{r fig.align='center'}
+fars_map_state(1,2013)
+fars_map_state(20,2015)
+fars_map_state(1,2014)
+```
