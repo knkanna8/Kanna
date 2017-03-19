@@ -1,4 +1,3 @@
 language: r
 cache: package
-dist: trusty
 sudo: false
