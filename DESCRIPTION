@@ -10,6 +10,12 @@ URL: https://www.r-project.org
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Imports: 
+    dplyr,
+    tidyr,
+    readr,
+    graphics,
+    maps
 Suggests: testthat,
     knitr,
     rmarkdown
