@@ -1,4 +1,4 @@
 language: r
 cache: package
 before_install:
-  sudo apt-get install dplyr
+  sudo apt-get install r-cran-dplyr
