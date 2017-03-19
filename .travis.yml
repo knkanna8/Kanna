@@ -1,4 +1,4 @@
 language: r
 cache: package
 dist: trusty
-sudo: required
+sudo: false
