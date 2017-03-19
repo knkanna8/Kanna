@@ -155,6 +155,7 @@ fars_summarize_years <- function(years) {
 #' it returns "no accidents to plot".
 #'
 #' @examples
+#'
 #' \dontrun{
 #' fars_map_state(1,2013)
 #' }
