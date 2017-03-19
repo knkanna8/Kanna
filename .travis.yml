@@ -1,6 +1,4 @@
 language: r
+before_install:
+  sudo apt-get install r-cran-dplyr r-cran-maps  
 cache: package
-before_install:
-  sudo apt-get install r-cran-dplyr
-before_install:
-  sudo apt-get install r-cran-maps
