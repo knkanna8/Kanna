@@ -27,6 +27,9 @@ If there is no accident during a specific year in  aspecific state then
 it returns "no accidents to plot".
 }
 \examples{
+
+\dontrun{
 fars_map_state(1,2013)
+}
 
 }
