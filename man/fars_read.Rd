@@ -23,6 +23,8 @@ If there is no such file then it will return "file <filename> does not
 exist".
 }
 \examples{
+\dontrun{
 fars_read("/home/kanna/Desktop/COURSERA/data/accident_2013.csv.bz2")
+}
 
 }
