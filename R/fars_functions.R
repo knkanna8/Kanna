@@ -1,3 +1,4 @@
+utils::globalVariables(c("MONTH", "STATE", "year"))
 #---------------------------------------------------------------------------------
 #' @title Read fars data.
 #'
