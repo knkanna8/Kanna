@@ -1,3 +1,4 @@
 language: r
 cache: package
-sudo: false
+before_install:
+  sudo apt-get -y install dplyr
